@@ -2,43 +2,61 @@ import React, { Component } from 'react';
 
 export default class App extends Component {
   
-        state = {
-      value: '',
-      array: [],
-      error: "",
-    
+  state = {
+    value: '',
+    array: [],
+    error: '',
+    target: {
+      name: '',
+      index: null,
+    },
   }
-    handleChange =(e)=>{
-      this.setState({value: e.target.value});
     
-    }
-
-    handleSubmit = (e) =>{ 
-
-      this.setState({error:''})
-
-      if (this.state.value === ""){
-        this.setState({error: "Preencha o campo!"})
-
-        e.preventDefault();
-         return;  
-    }
-     
+  handleChange = (e) => {
+    this.setState({value: e.target.value});
+  }
+    
+  handleSubmit = (e) => {
+    this.setState({error:''})
+    if (this.state.value === ''){
+      this.setState({error: 'Preencha o campo!'})
       e.preventDefault();
-      
+      return;  
+    }
+    e.preventDefault();
+    this.setState(state => {
+      const array = state.array.concat(this.state.value);
+      return { array }
+    });
+    this.setState({value: ''});
+  };
 
-      this.setState(state => {
-        const array = state.array.concat(this.state.value);
-       
-        return {
-          array,
-        }
-      });
-      this.setState({value: ''});
-      
-    };
+  handleClick = (nome, index) => {
+    this.setState({
+      target:{
+        name:nome,
+        index: index
+      }
+    });
+  }
+
+  deletar = (index) => {
+    this.state.array.splice(index,1);
+    console.log(this.state.array);
+  }
     
   render() {
+    let alvo;
+    if (this.state.target.name !== '') {
+      alvo = <div className="div3">O que você quer fazer com {this.state.target.name}?
+      <div className="btns">
+        <button className="delete" onClick={() => this.deletar(this.state.target.index)}>Deletar</button>
+        <button className="edit">Editar</button>
+      </div>  
+      </div>;
+    } else {
+      alvo = <div></div>;
+    }
     return (
       <div className="mainDiv">
         <form>
@@ -47,17 +65,17 @@ export default class App extends Component {
           value={this.state.value}
           onChange={this.handleChange}
            />
-          <button onClick={this.handleSubmit} >OK</button>
-          <div className="error">{this.state.error}</div>
+            <button className="btn-green" onClick={this.handleSubmit} >OK</button>
+            <div className="error">{this.state.error}</div>
           </form>
           <div className="div2">  
-        <ul>
-        
-          {this.state.array.map(nome => (
-            <li key={nome} ><input className="checkbox" type="checkbox" />{nome}</li>
-            ))}
-          </ul>
-          </div>  
+            <ul>
+              {this.state.array.map((nome, index) => (
+                <li key={nome} onClick={() => this.handleClick(nome, index)}>{nome}</li>
+              ))}
+            </ul>
+          </div> 
+          {alvo}
       </div>
     );
   }

@@ -6,7 +6,6 @@
  
 }
 
-
 input{
   height: 40px;
   padding: 0 20px;
@@ -15,12 +14,12 @@ input{
   outline: none;
 }
 
-button{
+button.btn-green{
   height: 40px;
   padding: 0 20px;
   margin-left: 10px;
   background: #00ce74;
-  border: 0;
+  border: none;
   color:#fff;
   font-size: 16px;
   font-weight: bold;
@@ -29,7 +28,7 @@ button{
   outline: none;
   
 }
-button:hover{
+button.btn-green:hover{
   background:#4ebd69;
 }
 ul{
@@ -38,17 +37,62 @@ ul{
   list-style: none;
   background: white;
   border-radius: 3px;
-  padding-left: 3px;
+  padding-left: 0px;
 
 }
 li{
   align-items: center;
   font-size: 25px;
   margin: 0 0 0 0;
+  cursor: pointer;
+  padding-left: 6px;
+}
+li:hover{
+  background: #ccc;
+  border-radius: 3px;
 }
 .error{
   color: red;
+  font-weight: bold;
 }
 .checkbox{
   height: 15px;
+
+}
+.div3{
+  background: #ccc;
+  font-size: 25px;
+  border-radius: 3.5px;
+  padding: 10px;
+}
+.delete{
+  border: none;
+  height: 40px;
+  padding: 0 20px;
+  background-color: red;
+  border-radius: 3px;
+  margin-right: 20px;
+  color:#fff;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+.edit{
+  border: none;
+  height: 40px;
+  padding: 0 20px;
+  width: 94.25px;
+  background: #d88c00;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+  
+
+.btns {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
 }
