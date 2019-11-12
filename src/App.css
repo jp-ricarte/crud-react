@@ -21,15 +21,19 @@ button.btn-green{
   background: #00ce74;
   border: none;
   color:#fff;
-  font-size: 16px;
   font-weight: bold;
   border-radius: 3.5px;
-  cursor: pointer;
-  outline: none;
+  box-shadow: 0 5px 0 #319249;
   
 }
 button.btn-green:hover{
   background:#4ebd69;
+}
+button.btn-green:active{
+  position: relative;
+  top: 5px;
+  box-shadow: none;
+  
 }
 ul{
   width: 110%;
@@ -53,7 +57,10 @@ li:hover{
 }
 .error{
   color: red;
-  font-weight: bold;
+  font-weight: 800;
+  text-shadow: 1.5px 1.5px black;
+  font-size: 16px;
+
 }
 .checkbox{
   height: 15px;
@@ -74,8 +81,14 @@ li:hover{
   margin-right: 20px;
   color:#fff;
   font-weight: bold;
-  letter-spacing: 0.5px;
-  cursor: pointer;
+  box-shadow: 0 5px 0 #cc0606;
+ 
+
+}
+.delete:active{
+  position: relative;
+  top: 5px;
+  box-shadow: none;
 }
 .edit{
   border: none;
@@ -86,10 +99,15 @@ li:hover{
   border-radius: 3px;
   color: #fff;
   font-weight: bold;
-  letter-spacing: 0.5px;
-  cursor: pointer;
+  box-shadow: 0 5px 0 #c17a20;
+  
 }
   
+.edit:active{
+  position: relative;
+  top: 5px;
+  box-shadow: none;
+}
 
 .btns {
   display: flex;

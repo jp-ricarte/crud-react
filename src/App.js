@@ -41,17 +41,26 @@ export default class App extends Component {
   }
 
   deletar = (index) => {
-    this.state.array.splice(index,1);
-    console.log(this.state.array);
+    const item = this.state.array.filter((item, idx) => idx !==index);
+    
+    this.setState({array: item});
+    
+  }
+
+  editar = () =>{
+    const item = this.state.array.map((item, index) => this.state.value )
+
+    this.setState({array: item})
   }
     
   render() {
     let alvo;
     if (this.state.target.name !== '') {
+   
       alvo = <div className="div3">O que você quer fazer com {this.state.target.name}?
       <div className="btns">
         <button className="delete" onClick={() => this.deletar(this.state.target.index)}>Deletar</button>
-        <button className="edit">Editar</button>
+        <button className="edit" onClick={() => this.editar()}>Editar</button>
       </div>  
       </div>;
     } else {
@@ -71,7 +80,7 @@ export default class App extends Component {
           <div className="div2">  
             <ul>
               {this.state.array.map((nome, index) => (
-                <li key={nome} onClick={() => this.handleClick(nome, index)}>{nome}</li>
+                <li key={index} onClick={() => this.handleClick(nome, index)}>{nome}</li>
               ))}
             </ul>
           </div> 
