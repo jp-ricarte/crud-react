@@ -41,17 +41,34 @@ export default class App extends Component {
   }
 
   deletar = (index) => {
+    
     const item = this.state.array.filter((item, idx) => idx !==index);
     
     this.setState({array: item});
-    
+
+    this.setState({name: ''});
+
   }
 
   editar = () =>{
-    const item = this.state.array.map((item, index) => this.state.value )
+    if (this.state.value === ''){
+      this.setState({error: 'Preencha o campo para editar o texto'})
+     
+      return;  
+    }
+    
+    if(this.state.target.index === 0){
 
-    this.setState({array: item})
-  }
+    this.state.array.splice(this.state.target.index, this.state.target.index+1, this.state.value)
+      
+    }else { 
+   
+    this.state.array.splice(this.state.target.index, this.state.target.index, this.state.value)
+
+    this.setState({ array: this.state.array });
+    }
+  };
+
     
   render() {
     let alvo;
@@ -59,7 +76,7 @@ export default class App extends Component {
    
       alvo = <div className="div3">O que você quer fazer com {this.state.target.name}?
       <div className="btns">
-        <button className="delete" onClick={() => this.deletar(this.state.target.index)}>Deletar</button>
+        <button className="delete" onClick={() => this.deletar(this.state.target.index) }>Deletar</button>
         <button className="edit" onClick={() => this.editar()}>Editar</button>
       </div>  
       </div>;
@@ -89,5 +106,4 @@ export default class App extends Component {
     );
   }
 };
-
 
