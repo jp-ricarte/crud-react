@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './App.css';
+import { Link } from 'react-router-dom'
 
 export default class App extends Component {
   
@@ -6,6 +8,7 @@ export default class App extends Component {
     value: '',
     array: [],
     error: '',
+    arrayAuto: ["jp ", "ives ", "ivisson ", "davo "],
     target: {
       name: '',
       index: null,
@@ -69,7 +72,15 @@ export default class App extends Component {
     }
   };
 
+  /*editAuto = (event) =>{
+    this.state.arrayAuto.splice(1, 1, "samuel ")
     
+    this.setState({ arrayAuto: this.state.arrayAuto });
+
+    event.preventDefault()
+  }  */
+
+
   render() {
     let alvo;
     if (this.state.target.name !== '') {
@@ -84,6 +95,7 @@ export default class App extends Component {
       alvo = <div></div>;
     }
     return (
+    
       <div className="mainDiv">
         <form>
           <input 
@@ -92,17 +104,29 @@ export default class App extends Component {
           onChange={this.handleChange}
            />
             <button className="btn-green" onClick={this.handleSubmit} >OK</button>
+           
             <div className="error">{this.state.error}</div>
           </form>
           <div className="div2">  
             <ul>
+            
               {this.state.array.map((nome, index) => (
                 <li key={index} onClick={() => this.handleClick(nome, index)}>{nome}</li>
               ))}
             </ul>
           </div> 
           {alvo}
+          <div>
+          <Link to="/">
+              <button className="botao-app"> 
+                 VOLTAR PARA O MENU INICIAL
+              </button>
+          </Link>  
+          </div>
       </div>
+      
+    
+     
     );
   }
 };

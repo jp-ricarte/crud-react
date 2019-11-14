@@ -1,0 +1,56 @@
+.div{
+    padding-top: 0.1px;
+    height: 100vh;
+}
+
+.first{
+    margin-top: 40px;
+}
+.react{
+    color: #20d8fa;
+    font-weight: 400;
+}
+h1{
+    text-align: center;
+    font-size: 90px;
+    margin: 11px 0;
+    color: white;
+}
+img{
+    animation: logo-spin infinite 20s linear;
+    margin-left: 3px;
+    width: 103px;
+    height: 103px;
+}
+.alignImg{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.botao{
+   
+    background: #8658b7;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 800;
+    padding-top: 30px;
+    padding-bottom: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+   
+}
+.link{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+@keyframes logo-spin{
+    from{ transform: rotate(0deg);}
+    to{ transform: rotate(360deg);}
+}

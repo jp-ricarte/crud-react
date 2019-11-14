@@ -1,7 +1,8 @@
 body {
-  
-  background: #8658b7;
+  background: black;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -15,6 +16,10 @@ code {
     monospace;
 }
 button{
+  position: relative;
+  height: 40px;
+  padding: 0 20px;
+  margin-left: 10px;
   outline: none;
   font-size: 16px;
   cursor: pointer;
