@@ -8,7 +8,6 @@ export default class App extends Component {
     value: '',
     array: [],
     error: '',
-    arrayAuto: ["jp ", "ives ", "ivisson ", "davo "],
     target: {
       name: '',
       index: null,
@@ -71,16 +70,7 @@ export default class App extends Component {
     this.setState({ array: this.state.array });
     }
   };
-
-  /*editAuto = (event) =>{
-    this.state.arrayAuto.splice(1, 1, "samuel ")
-    
-    this.setState({ arrayAuto: this.state.arrayAuto });
-
-    event.preventDefault()
-  }  */
-
-
+  
   render() {
     let alvo;
     if (this.state.target.name !== '') {
@@ -116,7 +106,7 @@ export default class App extends Component {
             </ul>
           </div> 
           {alvo}
-          <div>
+          <div className="inicial">
           <Link to="/">
               <button className="botao-app"> 
                  VOLTAR PARA O MENU INICIAL

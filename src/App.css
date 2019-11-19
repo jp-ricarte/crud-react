@@ -132,10 +132,15 @@ li:hover{
 }
 .botao-app{
   margin-top: 60px;
-  background: black;
+  background: transparent;
   border: none;
-  color:#fff;
+  color:#ccc;
   border-radius: 5px;
   font-weight: 800;
 
+}
+.inicial{
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
